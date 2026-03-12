@@ -1,0 +1,12 @@
+import csv #here i gonna use csv.writer()
+import os 
+def write_csvf(folder,file_name,content):
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))#this is to make sure we can find the right folder
+    os.makedirs(folder,exist_ok=True)#if the folder we wanna find exists?if not, make one
+    with open(file_name,'w') as f:
+        writer=csv.writer(f)
+        writer.writerows(content)
+    print('all done')
+        #all done'
+movie=[['year','rating','title'],['2023','8.5','奥本海默'],['2024','7.8','沙丘2'],['2022','9.1','流浪地球2'],['2025','8.2','哪吒2']]
+write_csvf('.','movie_info',movie)
